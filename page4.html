@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>فرم ثبت اطلاعات</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#07182b;color:white;font-family:Tahoma,sans-serif;text-align:center}
+header{padding:22px;background:#102b45;color:#e7c56a}
+nav{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;padding:18px}
+nav a{padding:12px;background:#183751;color:white;border:1px solid #d8b45b;text-decoration:none;border-radius:8px;font-size:13px}
+main{max-width:600px;margin:auto;padding:20px}
+form{background:#10263c;padding:24px;border-radius:18px;border:1px solid #d8b45b;text-align:right}
+h1{color:#e7c56a;text-align:center}
+label{display:block;margin:18px 0 8px}
+input,select,textarea{width:100%;padding:13px;border-radius:8px;border:1px solid #506579;background:#f5f7fa;color:#172536;font-family:Tahoma,sans-serif;font-size:14px}
+button{width:100%;margin-top:22px;padding:14px;border:0;border-radius:9px;background:#e7c56a;color:#07182b;font-weight:bold;font-family:Tahoma,sans-serif;font-size:15px}
+#result{display:none;background:#183751;padding:15px;margin-top:15px;border-radius:8px;line-height:2}
+.note{font-size:12px;line-height:2;color:#bdcad5}
+</style>
+</head>
+<body>
+<header><h2>فرم ثبت اطلاعات</h2></header>
+<nav>
+<a href="index.html">صفحه اصلی</a>
+<a href="page2.html">دعوت‌نامه</a>
+<a href="page3.html">اطلاعات برنامه</a>
+<a href="page4.html">ثبت اطلاعات</a>
+</nav>
+<main>
+<form id="infoForm">
+<h1>ثبت مشخصات</h1>
+<label for="fullname">نام و نام خانوادگی</label>
+<input id="fullname" required placeholder="نام کامل">
+
+<label for="university">نام دانشگاه یا مجموعه</label>
+<input id="university" placeholder="نام دانشگاه">
+
+<label for="field">رشته یا زمینه فعالیت</label>
+<input id="field" placeholder="رشته یا زمینه فعالیت">
+
+<label for="visit">بخش موردنظر</label>
+<select id="visit" required>
+<option value="">انتخاب کنید</option>
+<option>معرفی و آشنایی</option>
+<option>اطلاعات برنامه</option>
+<option>پیگیری مراحل بعدی</option>
+</select>
+
+<label for="phone">شماره تماس (اختیاری)</label>
+<input id="phone" type="tel" placeholder="شماره تماس">
+
+<label for="message">توضیحات</label>
+<textarea id="message" rows="4" placeholder="توضیحات تکمیلی"></textarea>
+
+<button type="submit">ثبت اطلاعات</button>
+<div id="result"></div>
+<p class="note">این فرم نمایشی است و اطلاعات به سرور ارسال یا ذخیره دائمی نمی‌شود.</p>
+</form>
+</main>
+<script>
+document.getElementById("infoForm").addEventListener("submit",function(e){
+e.preventDefault();
+const name=document.getElementById("fullname").value.trim();
+const section=document.getElementById("visit").value;
+const result=document.getElementById("result");
+result.style.display="block";
+result.textContent="اطلاعات "+name+" در نسخه نمایشی ثبت شد. بخش انتخابی: "+section;
+});
+</script>
+</body>
+</html>
